@@ -19,7 +19,6 @@ class FavoriteBloc implements BlocBase {
       if(prefs.getKeys().contains("favorites")) {
         _favorites = json.decode(prefs.getString("favorites")).map(
             (key, value) {
-              print(value);
               return MapEntry(key, Video.fromJson(value));
             }).cast<String, Video>();
         _favController.add(_favorites);
